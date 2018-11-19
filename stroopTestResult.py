@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
+
 import scipy.misc as misc
 import matplotlib.pyplot as plt
 import numpy as np
