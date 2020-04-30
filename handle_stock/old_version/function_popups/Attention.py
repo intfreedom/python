@@ -13,13 +13,12 @@ MVP = []
 
 N = 0 #相当于查看进度，一共3600只；
 def getCode(fileName):
-    with open(r'./Data/'++fileName+'.csv', 'r', encoding='UTF-8') as f:
+    with open('D:\\Users\\Administrator\\'+fileName+'.csv', 'r', encoding='UTF-8') as f:
         reader = csv.reader(f)
         column = [row[0] for row in reader]
         return column
 
 dateToday = datetime.datetime.today().strftime('%Y-%m-%d')
-# column = getCode('AllTickets')    # 这里得到的是all tickets
 column = getCode('10101000')    # 这里得到的是GetPoint80Tickers中保存的Point80
 # column = getCode('10101000-Point90')  #10101000-Point90
 print(column)

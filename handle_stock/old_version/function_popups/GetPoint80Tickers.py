@@ -3,14 +3,11 @@ import tushare as ts
 import datetime
 import csv
 import re
-import os.path
 
 tickersRawData = tushare.get_stock_basics()
 tickers = tickersRawData.index.tolist()
 dateToday = datetime.datetime.today().strftime('%Y-%m-%d')
-if not os.path.isdir('Data'):
-    os.makedirs('Data')
-file = r'./Data/AllTickets'+dateToday+'.csv'
+file = 'D:\\Users\\Administrator\\Anaconda3'+dateToday+'.csv'
 tickersRawData.to_csv(file)
 
 
@@ -46,14 +43,14 @@ def getPointTicker(ticker, growthRate=0.01, startT='2018-01-01'):
 
 
 def saveCode(fileName, tickersList):
-    with open(r'./Data/'+fileName+'.csv', 'w', encoding='UTF-8') as f:
+    with open('D:\\Users\\Administrator\\'+fileName+'.csv', 'w', encoding='UTF-8') as f:
         # 加上\n就不会报错，
         for i in tickersList:
             f.write(i + '\n')  # Terminate lines with \n 使用\ n终止行
 
 
 def getCode(fileName):
-    with open(r'./Data/'+fileName+'.csv', 'r', encoding='UTF-8') as f:
+    with open('D:\\Users\\Administrator\\'+fileName+'.csv', 'r', encoding='UTF-8') as f:
         reader = csv.reader(f)
         column = [row[0] for row in reader]
         return column
@@ -92,7 +89,7 @@ def GetLowest(ticket, startT='2018-01-01',Distance = 30, rateDistance=1.08):
     return lowVaule
 
 
-TickersFileName = 'AllTickets'
+TickersFileName = '000data'
 saveCode(TickersFileName, tickers)
 column = getCode(TickersFileName)
 print(column)
