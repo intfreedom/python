@@ -59,7 +59,7 @@ for code_number in column[0:3]:
             if code_point[3] != '':
                 two_day_high.append(code_number)
     except:
-        continue
+        pass
 
     N += 1
     print("<<< one_yuan", one_yuan, len(one_yuan), N, " >>>")
